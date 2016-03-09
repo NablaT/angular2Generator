@@ -28,7 +28,7 @@
   "files": [
 	"app",
 	"routeur"
-  ]
+  ],
   "dependencies": {
     "yeoman-generator": "^0.22.5"
   }
