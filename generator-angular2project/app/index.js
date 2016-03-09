@@ -1,6 +1,7 @@
 var generators = require('yeoman-generator');
 
 module.exports = generators.Base.extend({
+
     prompting: function () {
         var done = this.async();
         this.prompt({
@@ -30,7 +31,7 @@ module.exports = generators.Base.extend({
 
         this.copy('app/components/_about.ts', 'app/components/about.ts');
         this.copy('app/components/_home.ts', 'app/components/home.ts');
-        
+
         this.copy('app/shared/_test.ts', 'app/shared/test.ts');
         //this.copy('app/_basic-template.html', this.basicTemplate + '.html');
         //this.copy('app/_basic-template.js', this.basicTemplate + '.js');

@@ -5,8 +5,8 @@
 _ package.json <br/>
 _ app<br/>
  - index.js<br/>
- - _main.ts<br/>
- - _routeur.ts<br/>
+ - main.ts<br/>
+ - routeur.ts<br/>
  - index.html<br/>
  - shared<br/>
     │_ services<br/>
