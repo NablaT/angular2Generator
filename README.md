@@ -2,7 +2,7 @@
 
 ## Folder architecture
 
-_ package.json
+_ package.json <br/>
 _ app
 │_ index.js
 │_ main.ts
