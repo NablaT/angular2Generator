@@ -24,11 +24,14 @@ module.exports = generators.Base.extend({
 
         this.copy('app/_main.ts', 'app/_main.ts');
         this.copy('app/_routeur.ts', 'app/_routeur.ts');
-
         this.copy('app/_index.html', 'app/_index.html');
-        this.copy('app/_assets', 'app/assets');
-        this.copy('app/_components', 'app/components');
-        this.copy('app/_shared', 'app/shared');
+
+        this.copy('app/assets/_test', 'app/assets/test');
+
+        this.copy('app/components/_about.ts', 'app/components/about.ts');
+        this.copy('app/components/_home.ts', 'app/components/home.ts');
+        
+        this.copy('app/shared/_test.ts', 'app/shared/test.ts');
         //this.copy('app/_basic-template.html', this.basicTemplate + '.html');
         //this.copy('app/_basic-template.js', this.basicTemplate + '.js');
     }
