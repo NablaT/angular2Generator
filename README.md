@@ -12,11 +12,11 @@ _ app<br/>
     │_ services<br/>
     │_ directives<br/>
     │_ style<br/>
- -components<br/>
+ - components<br/>
     │_ home<br/>
     │_ about<br/>
     │_ style<br/>
  - assets
 
 _ routeur<br/>
- -index.js<br/>
+ - index.js<br/>
