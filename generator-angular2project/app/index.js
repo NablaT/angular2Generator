@@ -26,6 +26,9 @@ module.exports = generators.Base.extend({
         this.copy('app/_routeur.ts', 'app/_routeur.ts');
 
         this.copy('app/_index.html', 'app/_index.html');
+        this.copy('app/_assets', 'app/assets');
+        this.copy('app/_components', 'app/components');
+        this.copy('app/_shared', 'app/shared');
         //this.copy('app/_basic-template.html', this.basicTemplate + '.html');
         //this.copy('app/_basic-template.js', this.basicTemplate + '.js');
     }
