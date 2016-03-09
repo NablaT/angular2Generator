@@ -32,4 +32,3 @@ module.exports = generators.Base.extend({
 
 
 });
-});
