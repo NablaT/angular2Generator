@@ -19,7 +19,7 @@ module.exports = generators.Base.extend({
         //this.basicTemplate = 'app/' + lodash.kebabCase(this.appname);
 
         this.copy('_package.json', 'package.json');
-        this.copy('_readme.md', 'readme.md');
+        this.copy('_readme.md', '_readme.md');
         this.copy('_gitignore', '.gitignore');
 
         this.copy('app/_main.ts', 'app/main.ts');
@@ -31,4 +31,5 @@ module.exports = generators.Base.extend({
     }
 
 
+});
 });
