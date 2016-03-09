@@ -22,10 +22,10 @@ module.exports = generators.Base.extend({
         this.copy('_readme.md', '_readme.md');
         this.copy('_gitignore', '.gitignore');
 
-        this.copy('app/_main.ts', 'app/main.ts');
-        this.copy('app/routeur.ts', 'app/routeur.ts');
+        this.copy('app/_main.ts', 'app/_main.ts');
+        this.copy('app/_routeur.ts', 'app/_routeur.ts');
 
-        this.copy('app/_index.html', 'app/index.html');
+        this.copy('app/_index.html', 'app/_index.html');
         //this.copy('app/_basic-template.html', this.basicTemplate + '.html');
         //this.copy('app/_basic-template.js', this.basicTemplate + '.js');
     }
