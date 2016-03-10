@@ -42,5 +42,6 @@ module.exports = generators.Base.extend({
 
     install: function(){
         this.npmInstall();
+        //this.spawnCommand('dir');
     }
 });
