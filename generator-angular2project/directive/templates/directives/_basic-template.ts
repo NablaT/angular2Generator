@@ -1,5 +1,5 @@
 /**
- * Created by rpourtier on 10/03/2016.
+ * Directive <%= nameOfDirective %>Directive
  */
 import {Directive, ElementRef, Input} from 'angular2/core';
 @Directive({

@@ -1,5 +1,5 @@
 /**
- * Created by rpourtier on 10/03/2016.
+ * Test Component <%= nameOfComponent %>
  */
 import {<%= nameOfComponent %>} from "./<%= argsInKebab %>.component";
 import {Component} from "angular2/core";

@@ -1,6 +1,7 @@
 /**
- * Created by rpourtier on 10/03/2016.
+ * Component <%= nameOfComponent %>
  */
+
 import {Component} from 'angular2/core';
 
 @Component({

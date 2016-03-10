@@ -1,5 +1,5 @@
 /**
- * Created by rpourtier on 10/03/2016.
+ * Service <%= nameOfService %>
  */
 import {Injectable} from 'angular2/core';
 

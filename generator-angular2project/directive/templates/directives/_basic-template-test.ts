@@ -1,3 +1,3 @@
 /**
- * Created by rpourtier on 10/03/2016.
+ * Test directive <%= nameOfDirective %>Directive.
  */
