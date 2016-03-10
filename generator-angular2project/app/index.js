@@ -25,6 +25,9 @@ module.exports = generators.Base.extend({
         this.copy('_package.json', 'package.json');
         this.copy('_readme.md', 'readme.md');
         this.copy('_gitignore', '.gitignore');
+        this.copy('_tsconfig.json', 'tsconfig.json');
+        this.copy('_typings.json', 'typings.json');
+        this.copy('_gulpfile.ts', 'gulpfile.ts');
 
         this.copy('app/_main.ts', 'app/main.ts');
         this.copy('app/_routeur.ts', 'app/component.ts');
