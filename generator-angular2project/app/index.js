@@ -9,6 +9,7 @@ module.exports = generators.Base.extend({
             type: 'input',
             name: 'name',
             message: 'Your project name',
+            store:true,
             default: this.appname // Default to current folder name
         }, function (answers) {
             this.log(answers.name);
@@ -22,12 +23,12 @@ module.exports = generators.Base.extend({
         this.basicTemplate = 'app/components/' + lodash.kebabCase(this.projectTitle);
 
         this.copy('_package.json', 'package.json');
-        this.copy('_readme.md', '_readme.md');
+        this.copy('_readme.md', 'readme.md');
         this.copy('_gitignore', '.gitignore');
 
-        this.copy('app/_main.ts', 'app/_main.ts');
-        this.copy('app/_routeur.ts', 'app/_routeur.ts');
-        this.copy('app/_index.html', 'app/_index.html');
+        this.copy('app/_main.ts', 'app/main.ts');
+        this.copy('app/_routeur.ts', 'app/routeur.ts');
+        this.copy('app/_index.html', 'app/index.html');
 
         this.copy('app/assets/_test', 'app/assets/test');
 
@@ -37,7 +38,9 @@ module.exports = generators.Base.extend({
         this.copy('app/shared/_test.ts', 'app/shared/test.ts');
         this.copy('app/components/_basic-template.html', this.basicTemplate + '.html');
         this.copy('app/components/_basic-template.ts', this.basicTemplate + '.ts');
+    },
+
+    install: function(){
+        this.npmInstall();
     }
-
-
 });
