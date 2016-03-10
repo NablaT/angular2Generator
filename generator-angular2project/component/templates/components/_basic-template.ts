@@ -4,9 +4,9 @@
 import {Component} from 'angular2/core';
 
 @Component({
-    selector: 'app',
+    selector: '<%= argsInKebab %>',
     moduleId: module.id,
-    templateUrl: './app.component.html',
-    styleUrls : ['./app.component.css']
+    templateUrl: './<%= argsInKebab %>.component.html',
+    styleUrls : ['./<%= argsInKebab %>.component.css']
 })
-export class AppComponent { }
+export class <%= nameOfComponent %> { }
