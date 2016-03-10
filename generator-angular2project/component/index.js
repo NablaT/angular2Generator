@@ -5,7 +5,7 @@ module.exports = generators.Base.extend({
 
     constructor:function(){
         generators.Base.apply(this, arguments);
-        this.arguments = lodash.camelCase(this.arguments);
+        this.reworkArguments = lodash.camelCase(this.arguments);
         this.log(this.arguments);
     },
     /*
@@ -24,10 +24,11 @@ module.exports = generators.Base.extend({
     },*/
 
     writing: function () {
-       this.basicTemplate = 'app/components/' + lodash.kebabCase(this.arguments);
-
-        this.copy('components/_basic-template.html', this.arguments+'/'+this.basicTemplate + '.html');
-        this.copy('components/_basic-template.ts', this.arguments+'/'+this.basicTemplate + '.ts');
+       this.basicTemplate = 'app/components/'+this.reworkArguments+'/' + lodash.kebabCase(this.arguments);
+        this.copy('components/_basic-template.html',this.basicTemplate + '.component.html');
+        this.copy('components/_basic-template.ts', this.basicTemplate + '.component.ts');
+        this.copy('components/_basic-template.css',this.basicTemplate + '.component.css');
+        this.copy('components/_basic-template-test.ts', this.basicTemplate + '.component.spec.ts');
     },
 
 });

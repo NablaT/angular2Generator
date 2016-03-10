@@ -27,7 +27,7 @@ module.exports = generators.Base.extend({
         this.copy('_gitignore', '.gitignore');
 
         this.copy('app/_main.ts', 'app/main.ts');
-        this.copy('app/_routeur.ts', 'app/routeur.ts');
+        this.copy('app/_routeur.ts', 'app/component.ts');
         this.copy('app/_index.html', 'app/index.html');
 
         this.copy('app/assets/_test', 'app/assets/test');
