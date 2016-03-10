@@ -35,8 +35,8 @@ module.exports = generators.Base.extend({
 
         this.copy('app/assets/_test', 'app/assets/test');
 
-        this.copy('app/components/_about.ts', 'app/components/about.ts');
-        this.copy('app/components/_home.ts', 'app/components/home.ts');
+        //this.copy('app/components/_about.ts', 'app/components/about.ts');
+        //this.copy('app/components/_home.ts', 'app/components/home.ts');
 
         this.copy('app/shared/_test.ts', 'app/shared/test.ts');
         this.copy('app/components/_basic-template.html', this.basicTemplate + '.html');
