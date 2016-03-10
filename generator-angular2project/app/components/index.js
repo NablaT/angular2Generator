@@ -2,7 +2,7 @@
  * Created by rpourtier on 09/03/2016.
  */
 'use strict';
-var util = require('util');
+/*var util = require('util');
 var ScriptBase = require('../script-base.js');
 
 
@@ -25,4 +25,4 @@ Generator.prototype.createControllerFiles = function createControllerFiles() {
         'controllers',
         this.options['skip-add'] || false
     );
-};
+};*/
