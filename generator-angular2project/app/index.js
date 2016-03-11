@@ -135,26 +135,40 @@ module.exports = generators.Base.extend({
         this.copy('app/shared/styles/_README.md', 'app/shared/styles/_README.md');
     },
 
+    installSass: function(){
+        if (this.sassValue=== "Y") {
+            this.log("into sassValue");
+            this.npmInstall(['gulp-sass'], { 'save': true }); //npm install gulp-sass --save
+        }
+
+        this.log('------------------------------------------------- end install sass -------------------------------------------------');
+    },
+
+    installBootstrapOrFoundation: function(){
+        if (this.bootstrapValue === "Y") {
+            this.log("into bootstrapValue");
+            this.npmInstall(['bootstrap@4.0.0-alpha.2'], { 'save': true }); //npm install bootstrap@4.0.0-alpha.2 --save
+        }
+        else if (this.foundationValue === "Y") {
+            this.log("into foundationValue");
+            this.npmInstall(['foundation-sites'], { 'save': true }); //npm install foundation-sites --save
+        }
+        this.log('------------------------------------------------- end install bootstrap or foundation -------------------------------------------------');
+    },
+
+    installFontAwesome: function(){
+        if (this.fontAwesomeValue === "Y") {
+            this.log("into fontAwesomeValue");
+            this.npmInstall(['font-awesome'], { 'save': true }); //npm install font-awesome --save
+        }
+        this.log('------------------------------------------------- end install font Awesome -------------------------------------------------');
+    },
+
     /**
      * Function install. This function installs all dependencies according to user choices.
      */
     install: function () {
-        if (this.sassValue=='Y') {
-            this.npmInstall(['gulp-sass'], { 'save': true }); //npm install gulp-sass --save
-        }
-        /*
-        this.log('------------------------------------------------- end install sass -------------------------------------------------');
-        if (this.bootstrapValue === "Y") {
-            this.npmInstall(['bootstrap@4.0.0-alpha.2'], { 'save': true }); //npm install bootstrap@4.0.0-alpha.2 --save
-        }
-        else if (this.foundationValue === "Y") {
-            this.npmInstall(['foundation-sites'], { 'save': true }); //npm install foundation-sites --save
-        }
-        this.log('------------------------------------------------- end install bootstrap or foundation -------------------------------------------------');
-        if (this.fontAwesomeValue === "Y") {
-            this.npmInstall(['font-awesome'], { 'save': true }); //npm install font-awesome --save
-        }
-        this.log('------------------------------------------------- end install font Awesome -------------------------------------------------');
-        this.npmInstall();*/ //npm install
+        this.log("Sass value: "+ this.sassValue);
+        this.npmInstall(); //npm install
     }
 });
