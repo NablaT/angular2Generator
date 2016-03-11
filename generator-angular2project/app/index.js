@@ -140,7 +140,6 @@ module.exports = generators.Base.extend({
      */
     installSass: function(){
         if (this.sassValue=== "Y") {
-            this.log("into sassValue");
             this.npmInstall(['gulp-sass'], { 'save': true }); //npm install gulp-sass --save
         }
     },
@@ -151,11 +150,9 @@ module.exports = generators.Base.extend({
      */
     installBootstrapOrFoundation: function(){
         if (this.bootstrapValue === "Y") {
-            this.log("into bootstrapValue");
             this.npmInstall(['bootstrap@4.0.0-alpha.2'], { 'save': true }); //npm install bootstrap@4.0.0-alpha.2 --save
         }
         else if (this.foundationValue === "Y") {
-            this.log("into foundationValue");
             this.npmInstall(['foundation-sites'], { 'save': true }); //npm install foundation-sites --save
         }
     },
@@ -165,7 +162,6 @@ module.exports = generators.Base.extend({
      */
     installFontAwesome: function(){
         if (this.fontAwesomeValue === "Y") {
-            this.log("into fontAwesomeValue");
             this.npmInstall(['font-awesome'], { 'save': true }); //npm install font-awesome --save
         }
     },
