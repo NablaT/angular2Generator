@@ -10,16 +10,62 @@ module.exports = generators.Base.extend({
             name: 'name',
             message: 'Your project name',
             store:true,
-            default: this.appname // Default to current folder name
+            default: false
         }, function (answers) {
             this.log(answers.name);
             this.projectTitle=answers.name;
             done();
         }.bind(this));
+    },
 
+    askForSass: function(){
+        var done = this.async();
+        this.prompt({
+            type: 'input',
+            name: 'name',
+            message: 'Would you like to use SASS? (Y/N)',
+            store:true,
+            default: "" // Default
+        }, function (answers) {
+            this.log(answers.name);
+            this.sassValue=answers.name;
+            done();
+        }.bind(this));
+    },
+
+    askForBootstrap: function(){
+        var done = this.async();
+        this.prompt({
+            type: 'input',
+            name: 'name',
+            message: 'Would you like to use Bootstrap? (Y/N)',
+            store:true,
+            default: ""  // Default
+        }, function (answers) {
+            this.log(answers.name);
+            this.bootstrapValue=answers.name;
+            done();
+        }.bind(this));
+    },
+
+    askForFoundation: function(){
+        var done = this.async();
+        this.prompt({
+            type: 'input',
+            name: 'name',
+            message: 'Would you like to use Foundation? (Y/N)',
+            store:true,
+            default: ""  // Default
+        }, function (answers) {
+            this.log(answers.name);
+            this.foundationValue=answers.name;
+            done();
+        }.bind(this));
     },
 
     writing: function () {
+        this.log('SASS '+ this.sassValue +' Bootstrap: '+ this.bootstrapValue+' Foundation: '+this.foundationValue );
+
         this.basicTemplate = 'app/components/' + lodash.kebabCase(this.projectTitle);
 
         this.copy('_package.json', 'package.json');
