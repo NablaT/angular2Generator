@@ -135,15 +135,20 @@ module.exports = generators.Base.extend({
         this.copy('app/shared/styles/_README.md', 'app/shared/styles/_README.md');
     },
 
+    /**
+     * Function installSass. This function checks if user want to install Sass, if yes it runs the installation.
+     */
     installSass: function(){
         if (this.sassValue=== "Y") {
             this.log("into sassValue");
             this.npmInstall(['gulp-sass'], { 'save': true }); //npm install gulp-sass --save
         }
-
-        this.log('------------------------------------------------- end install sass -------------------------------------------------');
     },
 
+    /**
+     * Function installBootstrapOrFoundation. This function checks if user want to install Bootstrap or Foundation.
+     * If one of those framework has been chosen, the function install it.
+     */
     installBootstrapOrFoundation: function(){
         if (this.bootstrapValue === "Y") {
             this.log("into bootstrapValue");
@@ -153,15 +158,16 @@ module.exports = generators.Base.extend({
             this.log("into foundationValue");
             this.npmInstall(['foundation-sites'], { 'save': true }); //npm install foundation-sites --save
         }
-        this.log('------------------------------------------------- end install bootstrap or foundation -------------------------------------------------');
     },
 
+    /**
+     * Function installFontAwesome. This function checks if user want to install FontAwesome, if yes it runs the installation.
+     */
     installFontAwesome: function(){
         if (this.fontAwesomeValue === "Y") {
             this.log("into fontAwesomeValue");
             this.npmInstall(['font-awesome'], { 'save': true }); //npm install font-awesome --save
         }
-        this.log('------------------------------------------------- end install font Awesome -------------------------------------------------');
     },
 
     /**
