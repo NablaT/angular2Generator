@@ -3,6 +3,10 @@ var lodash = require('lodash');
 
 module.exports = generators.Base.extend({
 
+    /**
+     * Function prompting asks user the project name.
+     * We store the answer in the attribute projectTitle.
+     */
     prompting: function () {
         var done = this.async();
         this.prompt({
@@ -18,14 +22,18 @@ module.exports = generators.Base.extend({
         }.bind(this));
     },
 
+    /**
+     * Function askForSass. This function asks to user if he would like to use Sass.
+     * We store his answers in the variable sassValue.
+     */
     askForSass: function(){
         var done = this.async();
         this.prompt({
             type: 'input',
             name: 'name',
-            message: 'Would you like to use SASS? (Y/N)',
+            message: 'Would you like to use Sass? (Y/N)',
             store:true,
-            default: "" // Default
+            default: "N" // Default
         }, function (answers) {
             this.log(answers.name);
             this.sassValue=answers.name;
@@ -33,6 +41,10 @@ module.exports = generators.Base.extend({
         }.bind(this));
     },
 
+    /**
+     * Function askForBootstrap. This function asks to user if he would like to use Bootstrap.
+     * We store his answers in the variable bootstrapValue.
+     */
     askForBootstrap: function(){
         var done = this.async();
         this.prompt({
@@ -40,7 +52,7 @@ module.exports = generators.Base.extend({
             name: 'name',
             message: 'Would you like to use Bootstrap? (Y/N)',
             store:true,
-            default: ""  // Default
+            default: "N"  // Default
         }, function (answers) {
             this.log(answers.name);
             this.bootstrapValue=answers.name;
@@ -48,6 +60,10 @@ module.exports = generators.Base.extend({
         }.bind(this));
     },
 
+    /**
+     * Function askForFoundation. This function asks to user if he would like to use Foundation.
+     * We store his answers in the variable foudnationValue.
+     */
     askForFoundation: function(){
         var done = this.async();
         this.prompt({
@@ -55,7 +71,7 @@ module.exports = generators.Base.extend({
             name: 'name',
             message: 'Would you like to use Foundation? (Y/N)',
             store:true,
-            default: ""  // Default
+            default: "N"  // Default
         }, function (answers) {
             this.log(answers.name);
             this.foundationValue=answers.name;
@@ -63,6 +79,9 @@ module.exports = generators.Base.extend({
         }.bind(this));
     },
 
+    /**
+     * Function writing. This function copies the templates according to user choices and build the version of the application.
+     */
     writing: function () {
         this.log('SASS '+ this.sassValue +' Bootstrap: '+ this.bootstrapValue+' Foundation: '+this.foundationValue );
 
@@ -103,6 +122,9 @@ module.exports = generators.Base.extend({
         //this.copy('app/components/_basic-template.ts', this.basicTemplate + '.ts');
     },
 
+    /**
+     * Function install. This function installs all dependencies according to user choices.
+     */
     install: function(){
         this.npmInstall();
         //this.spawnCommand('dir');
