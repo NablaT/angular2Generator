@@ -59,32 +59,6 @@ module.exports = generators.Base.extend({
     },
 
     /**
-     * Function askForBootstrapVersion. This function asks to users the verison of Bootstrap he would like
-     * to use.
-     */
-    askForBootstrapVersion: function () {
-        if (this.bootstrapValue === "Y") {
-            var done = this.async();
-            this.prompt({
-                type: 'input',
-                name: 'name',
-                message: 'Would you like to use Bootstrap v4 alpha.2? (Y/N)',
-                store: true,
-                default: "N"  // Default
-            }, function (answers) {
-                if (answers.name === "N") {
-                    this.log("Bootstrap v3.3.6");
-                }
-                else {
-                    this.log("Bootstrap v4 alpha.2");
-                }
-                this.versionBoostrap = answers.name;
-                done();
-            }.bind(this));
-        }
-    },
-
-    /**
      * Function askForFoundation. This function asks to user if he would like to use Foundation.
      * We store his answers in the variable foundationValue.
      */
@@ -165,16 +139,22 @@ module.exports = generators.Base.extend({
      * Function install. This function installs all dependencies according to user choices.
      */
     install: function () {
-        if (this.sassValue === "Y") {
-
+        if (this.sassValue=='Y') {
+            this.npmInstall(['gulp-sass'], { 'save': true }); //npm install gulp-sass --save
         }
+        /*
+        this.log('------------------------------------------------- end install sass -------------------------------------------------');
         if (this.bootstrapValue === "Y") {
-
+            this.npmInstall(['bootstrap@4.0.0-alpha.2'], { 'save': true }); //npm install bootstrap@4.0.0-alpha.2 --save
         }
-        else if (this.foundationValue === "N") {
-
+        else if (this.foundationValue === "Y") {
+            this.npmInstall(['foundation-sites'], { 'save': true }); //npm install foundation-sites --save
         }
-        this.npmInstall();
-        //this.spawnCommand('dir');
+        this.log('------------------------------------------------- end install bootstrap or foundation -------------------------------------------------');
+        if (this.fontAwesomeValue === "Y") {
+            this.npmInstall(['font-awesome'], { 'save': true }); //npm install font-awesome --save
+        }
+        this.log('------------------------------------------------- end install font Awesome -------------------------------------------------');
+        this.npmInstall();*/ //npm install
     }
 });
