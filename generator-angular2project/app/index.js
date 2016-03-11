@@ -33,7 +33,7 @@ module.exports = generators.Base.extend({
         this.copy('app/_routeur.ts', 'app/component.ts');
         this.copy('app/_index.html', 'app/index.html');
 
-        this.copy('app/assets/_test', 'app/assets/test');
+        this.copy('app/assets/_README.md', 'app/assets/_README.md');
 
         //this.copy('app/components/_about.ts', 'app/components/about.ts');
         //this.copy('app/components/_home.ts', 'app/components/home.ts');
