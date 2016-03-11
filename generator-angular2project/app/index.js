@@ -39,7 +39,18 @@ module.exports = generators.Base.extend({
         //this.copy('app/components/_home.ts', 'app/components/home.ts');
 
         //this.copy('app/shared/_test.ts', 'app/shared/test.ts');
-        this.directory('app/shared', 'app/shared');
+        this.copy('app/components/_README.md', 'app/components/README.md');
+
+        this.copy('app/shared/_README.md', 'app/shared/README.md');
+
+        this.copy('app/shared/directives/_README.md', 'app/shared/directives/README.md');
+        this.copy('app/shared/directives/src/_README.md', 'app/shared/directives/src/README.md');
+        this.copy('app/shared/directives/test/_README.md', 'app/shared/directives/test/README.md');
+
+        this.copy('app/shared/services/_README.md', 'app/shared/services/README.md');
+        this.copy('app/shared/services/src/_README.md', 'app/shared/services/src/README.md');
+        this.copy('app/shared/services/test/_README.md', 'app/shared/services/test/README.md');
+
         //this.copy('app/components/_basic-template.html', this.basicTemplate + '.html');
         //this.copy('app/components/_basic-template.ts', this.basicTemplate + '.ts');
     },
