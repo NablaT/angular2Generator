@@ -36,7 +36,6 @@ module.exports = generators.Base.extend({
      * Function writing. This function copies the basic templates for components.
      */
     writing: function () {
-        commonFunction.checkSass();
         this.argsInKebab = lodash.kebabCase(this.arguments);
         this.basicTemplate = 'app/components/' + this.argsInKebab + '/' + this.argsInKebab;
         this.copy('components/_basic-template.html', this.basicTemplate + '.component.html');

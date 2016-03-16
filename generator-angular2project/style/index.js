@@ -1,8 +1,6 @@
-/**
- * Created by rpourtier on 11/03/2016.
- */
 var generators = require('yeoman-generator');
 var lodash = require('lodash');
+var json = require('fs');
 
 module.exports = generators.Base.extend({
 
@@ -14,6 +12,21 @@ module.exports = generators.Base.extend({
         this.reworkArguments = lodash.camelCase(this.arguments);
         this.nameOfStyle= this.reworkArguments.charAt(0).toUpperCase() + this.reworkArguments.slice(1);
     },
+
+    /**
+     * Function checkSass. This function reads the file package.json to know if user asked to install sass.
+     */
+    checkSass: function () {
+        this.hasSass=false;
+        var jsonContent=json.readFileSync("./package.json", 'utf8');
+        var storeJson= JSON.parse(jsonContent);
+        for(var currentKey in storeJson.dependencies) {
+            if(currentKey=="gulp-sass"){
+                this.hasSass=true;
+            }
+        }
+    },
+
 
     /**
      * Function writing. This function copies the basic templates for components.
