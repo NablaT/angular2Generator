@@ -89,7 +89,7 @@ module.exports = generators.Base.extend({
         this.prompt({
             type: 'input',
             name: 'name',
-            message: 'Would you like to use Font Awesome (Y/N)',
+            message: 'Would you like to use Font Awesome? (Y/N)',
             store: true,
             default: "N"  // Default
         }, function (answers) {
@@ -103,7 +103,6 @@ module.exports = generators.Base.extend({
      * Function writing. This function copies the templates according to user choices and build the version of the application.
      */
     writing: function () {
-        this.log('SASS ' + this.sassValue + ' Bootstrap: ' + this.bootstrapValue + ' Foundation: ' + this.foundationValue);
 
         this.basicTemplate = 'app/components/' + lodash.kebabCase(this.projectTitle);
 
@@ -118,21 +117,21 @@ module.exports = generators.Base.extend({
         this.copy('app/_routeur.ts', 'app/component.ts');
         this.copy('app/_index.html', 'app/index.html');
 
-        this.copy('app/assets/_README.md', 'app/assets/_README.md');
+        this.copy('app/assets/_README.md', 'app/assets/README.md');
 
-        this.copy('app/components/_README.md', 'app/components/_README.md');
+        this.copy('app/components/_README.md', 'app/components/README.md');
 
         this.copy('app/shared/_README.md', 'app/shared/_README.md');
 
-        this.copy('app/shared/directives/_README.md', 'app/shared/directives/_README.md');
-        this.copy('app/shared/directives/src/_README.md', 'app/shared/directives/src/_README.md');
-        this.copy('app/shared/directives/test/_README.md', 'app/shared/directives/test/_README.md');
+        this.copy('app/shared/directives/_README.md', 'app/shared/directives/README.md');
+        this.copy('app/shared/directives/src/_README.md', 'app/shared/directives/src/README.md');
+        this.copy('app/shared/directives/test/_README.md', 'app/shared/directives/test/README.md');
 
-        this.copy('app/shared/services/_README.md', 'app/shared/services/_README.md');
-        this.copy('app/shared/services/src/_README.md', 'app/shared/services/src/_README.md');
-        this.copy('app/shared/services/test/_README.md', 'app/shared/services/test/_README.md');
+        this.copy('app/shared/services/_README.md', 'app/shared/services/README.md');
+        this.copy('app/shared/services/src/_README.md', 'app/shared/services/src/README.md');
+        this.copy('app/shared/services/test/_README.md', 'app/shared/services/test/README.md');
 
-        this.copy('app/shared/styles/_README.md', 'app/shared/styles/_README.md');
+        this.copy('app/shared/styles/_README.md', 'app/shared/styles/README.md');
     },
 
     /**

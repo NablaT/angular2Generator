@@ -1,5 +1,6 @@
 var generators = require('yeoman-generator');
 var lodash = require('lodash');
+var CommonFunctions = require('../common-functions.js')
 
 module.exports = generators.Base.extend({
 
@@ -9,6 +10,7 @@ module.exports = generators.Base.extend({
         this.nameOfComponent= this.reworkArguments.charAt(0).toUpperCase() + this.reworkArguments.slice(1);
         this.log(this.nameOfComponent);
         this.log(this.arguments);
+        CommonFunctions.readJson();
     },
 
     writing: function () {
