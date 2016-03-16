@@ -2,6 +2,11 @@ var generators = require('yeoman-generator');
 var lodash = require('lodash');
 var json = require('fs');
 
+/**
+ * Global style generator. While user runs the command "yo angular2project NameOfTheGlobalStyle"
+ * every function in the generator will be ran in order to generate a global style.
+ * @type {void|*}
+ */
 module.exports = generators.Base.extend({
 
     /**
@@ -29,15 +34,18 @@ module.exports = generators.Base.extend({
 
 
     /**
-     * Function writing. This function copies the basic templates for components.
+     * Function writing. This function copies the basic templates for global styles.
      */
     writing: function () {
         this.argsInKebab = lodash.kebabCase(this.arguments);
 
-        this.basicTemplateSrc = 'app/shared/styles/' + this.argsInKebab;
-
-        this.copy('styles/_basic-template.css', this.basicTemplateSrc + '.css');
-        this.copy('styles/_basic-template.scss', this.basicTemplateSrc + '.scss');
+        this.basicTemplate= 'app/shared/styles/' + this.argsInKebab;
+        if(this.hasSass){
+            this.copy('styles/_basic-template.css', this.basicTemplate + '.component.scss');
+        }
+        else{
+            this.copy('styles/_basic-template.css', this.basicTemplate + '.component.css');
+        }
     },
 
 });

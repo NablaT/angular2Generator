@@ -3,8 +3,12 @@ var lodash = require('lodash');
 var json = require('fs');
 
 /**
- * Component generator. While user run the command "yo angular2project:component NameOfTheComponent",
- * every function in the generator will be ran.
+ * Component generator. While user runs the command "yo angular2project:component ComponentName",
+ * every function in the generator will be ran in order to generate a component with the following strucutre:
+ * component-name.component.ts : The heart the component
+ * component-name.component.spec.ts:  The test of the previous ts file
+ * component-name.component.css or .scss: The component style
+ * component-name.componenent.html: The html file of the component.
  * @type {void|*}
  */
 module.exports = generators.Base.extend({
