@@ -1,11 +1,18 @@
 var json = require('fs');
+var generators = require('yeoman-generator');
 
-/**
- *
- */
-function readJson(){
-    json.readFile("./package.json", function(err, obj) {
-        // obj contains JSON data
-        this.log(obj);
-    });
-}
+module.exports = generators.Base.extend({
+
+
+
+    /**
+     *
+     */
+    readJson: function () {
+        json.readFile("./package.json", function (err, obj) {
+            // obj contains JSON data
+            this.log(obj);
+        });
+    }
+
+});

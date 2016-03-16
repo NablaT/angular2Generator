@@ -100,7 +100,7 @@ module.exports = generators.Base.extend({
     },
 
     /**
-     * Function writing. This function copies the templates according to user choices and build the version of the application.
+     * Function writing. This function copies the templates according to user choices and build the first version of the application.
      */
     writing: function () {
 
