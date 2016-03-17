@@ -6,6 +6,6 @@ import {Component} from "angular2/core";
 @Component({
     selector: 'test-cmp',
     template: '<sd-<%= argsInKebab %>></sd-<%= argsInKebab %>>',
-    directives: [<%= nameOfComponent %>]
+    directives: []
 })
 class Test<%= nameOfComponent %> {}
