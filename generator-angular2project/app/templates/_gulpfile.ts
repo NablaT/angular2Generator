@@ -9,5 +9,5 @@ gulp.task('serve', callback =>
 );
 
 gulp.task('build', callback =>
-    runSequence('clean', 'copy:dist', 'ts:dist', 'sass:dist', 'server:init', callback)
+    runSequence('clean', ['copy:dist', 'ts:dist', 'sass:dist'], 'inject', 'server:init', callback)
 );

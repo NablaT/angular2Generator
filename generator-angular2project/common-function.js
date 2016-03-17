@@ -8,7 +8,7 @@ var json = require('fs');
 var checkSass = function checkSass() {
     console.log("oui bien sur");
     this.hasSass = false;
-    var jsonContent = json.readFileSync("./package.json", 'utf8');
+    var jsonContent = json.readFileSync("./_package.json", 'utf8');
     var storeJson = JSON.parse(jsonContent);
     for (var currentKey in storeJson.dependencies) {
         if (currentKey == "gulp-sass") {

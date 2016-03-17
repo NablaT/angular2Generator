@@ -16,7 +16,6 @@ module.exports = generators.Base.extend({
             store: true,
             default: "MyApp"
         }, function (answers) {
-            this.log(answers.name);
             this.projectTitle = answers.name;
             done();
         }.bind(this));
@@ -72,7 +71,6 @@ module.exports = generators.Base.extend({
                 store: true,
                 default: "N"  // Default
             }, function (answers) {
-                this.log(answers.name);
                 this.foundationValue = answers.name;
                 done();
             }.bind(this));
@@ -93,7 +91,6 @@ module.exports = generators.Base.extend({
             store: true,
             default: "N"  // Default
         }, function (answers) {
-            this.log(answers.name);
             this.fontAwesomeValue = answers.name;
             done();
         }.bind(this));
@@ -108,7 +105,7 @@ module.exports = generators.Base.extend({
 
         this.copy('_package.json', 'package.json');
         this.copy('_readme.md', 'readme.md');
-        this.copy('_gitignore', '.gitignore');
+        this.copy('_gitignore', 'gitignore');
         this.copy('_tsconfig.json', 'tsconfig.json');
         this.copy('_typings.json', 'typings.json');
         this.copy('_gulpfile.ts', 'gulpfile.ts');
@@ -121,7 +118,7 @@ module.exports = generators.Base.extend({
 
         this.copy('app/components/_README.md', 'app/components/README.md');
 
-        this.copy('app/shared/_README.md', 'app/shared/_README.md');
+        this.copy('app/shared/_README.md', 'app/shared/README.md');
 
         //Directives folders and content creation
         this.copy('app/shared/directives/_README.md', 'app/shared/directives/README.md');
@@ -135,8 +132,34 @@ module.exports = generators.Base.extend({
 
         //Styles folder and content creation
         this.copy('app/shared/styles/_README.md', 'app/shared/styles/README.md');
-        this.copy('app/shared/styles/_main.scss', 'app/shared/styles/main.scss');
-        this.copy('app/shared/styles/_variable.scss', 'app/shared/styles/variable.scss');
+        //We initialise the message which appears in the readme of the style folder. We give two different message
+        //if sass has been installed or not.
+        this.messageInReadMe="";
+        if (this.sassValue=== "Y") {
+            this.messageInReadMe="Initially, we generate two files: <br/> " +
+                "- main.scss: File Sass which defines the common part in the design of the application " +
+                "- variables.scss: Contains all css variables used for the design";
+            this.copy('app/shared/styles/_main.scss', 'app/shared/styles/main.scss');
+            this.copy('app/shared/styles/_variable.scss', 'app/shared/styles/variable.scss');
+        }
+
+        //Copy grunt tasks
+        this.copy('gulp/README.md', 'gulp/README.md');
+        this.copy('gulp/browsersync.ts', 'gulp/browsersync.ts');
+        this.copy('gulp/tasks/gulp-clean.ts', 'gulp/tasks/gulp-clean.ts');
+        this.copy('gulp/tasks/gulp-copy.ts', 'gulp/tasks/gulp-copy.ts');
+        this.copy('gulp/tasks/gulp-inject.ts', 'gulp/tasks/gulp-inject.ts');
+        this.copy('gulp/tasks/gulp-sass.ts', 'gulp/tasks/gulp-sass.ts');
+        this.copy('gulp/tasks/gulp-serve.ts', 'gulp/tasks/gulp-serve.ts');
+        this.copy('gulp/tasks/gulp-typescript.ts', 'gulp/tasks/gulp-typescript.ts');
+        this.copy('gulp/tasks/gulp-watch.ts', 'gulp/tasks/gulp-watch.ts');
+
+        //Manual typings folder
+        this.copy('manual_typings/README.md', 'manual_typings/README.md');
+        this.copy('manual_typings/require-dir.d.ts', 'manual_typings/require-dir.d.ts');
+        this.copy('manual_typings/manual-typings.d.ts', 'manual_typings/manual-typings.d.ts');
+
+
     },
 
     /**
@@ -174,7 +197,7 @@ module.exports = generators.Base.extend({
      * Function install. This function installs all dependencies according to user choices.
      */
     install: function () {
-        this.log("Sass value: "+ this.sassValue);
+        this.npmInstall(['gulp-cli'], { 'g': true });
         this.npmInstall(); //npm install
     }
 });

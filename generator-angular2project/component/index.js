@@ -23,11 +23,11 @@ module.exports = generators.Base.extend({
     },
 
     /**
-     * Function checkSass. This function reads the file package.json to know if user asked to install sass.
+     * Function checkSass. This function reads the file _package.json to know if user asked to install sass.
      */
     checkSass: function () {
         this.hasSass=false;
-        var jsonContent=json.readFileSync("./package.json", 'utf8');
+        var jsonContent=json.readFileSync("./_package.json", 'utf8');
         var storeJson= JSON.parse(jsonContent);
         for(var currentKey in storeJson.dependencies) {
             if(currentKey=="gulp-sass"){
