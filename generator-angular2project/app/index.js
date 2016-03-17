@@ -123,15 +123,20 @@ module.exports = generators.Base.extend({
 
         this.copy('app/shared/_README.md', 'app/shared/_README.md');
 
+        //Directives folders and content creation
         this.copy('app/shared/directives/_README.md', 'app/shared/directives/README.md');
         this.copy('app/shared/directives/src/_README.md', 'app/shared/directives/src/README.md');
         this.copy('app/shared/directives/test/_README.md', 'app/shared/directives/test/README.md');
 
+        //Services folders and content creation
         this.copy('app/shared/services/_README.md', 'app/shared/services/README.md');
         this.copy('app/shared/services/src/_README.md', 'app/shared/services/src/README.md');
         this.copy('app/shared/services/test/_README.md', 'app/shared/services/test/README.md');
 
+        //Styles folder and content creation
         this.copy('app/shared/styles/_README.md', 'app/shared/styles/README.md');
+        this.copy('app/shared/styles/_main.scss', 'app/shared/styles/main.scss');
+        this.copy('app/shared/styles/_variable.scss', 'app/shared/styles/variable.scss');
     },
 
     /**
