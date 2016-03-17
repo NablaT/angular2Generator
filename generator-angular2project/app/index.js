@@ -101,7 +101,7 @@ module.exports = generators.Base.extend({
      */
     writing: function () {
 
-        this.basicTemplate = 'app/components/' + lodash.kebabCase(this.projectTitle);
+        this.basicTemplate = 'src/components/' + lodash.kebabCase(this.projectTitle);
 
         this.copy('_package.json', 'package.json');
         this.copy('_readme.md', 'readme.md');
@@ -110,28 +110,38 @@ module.exports = generators.Base.extend({
         this.copy('_typings.json', 'typings.json');
         this.copy('_gulpfile.ts', 'gulpfile.ts');
 
-        this.copy('app/_main.ts', 'app/main.ts');
-        this.copy('app/_routeur.ts', 'app/component.ts');
-        this.copy('app/_index.html', 'app/index.html');
+        this.copy('src/_main.ts', 'src/main.ts');
+        this.copy('src/_routeur.ts', 'src/component.ts');
+        this.copy('src/_index.html', 'src/index.html');
 
-        this.copy('app/assets/_README.md', 'app/assets/README.md');
+        this.copy('src/assets/_README.md', 'src/assets/README.md');
 
-        this.copy('app/components/_README.md', 'app/components/README.md');
+        //Component folder creation
+        this.copy('src/components/_README.md', 'src/components/README.md');
+        this.copy('src/components/app/_app.component.html', 'src/components/app/app.component.html');
+        if (this.sassValue=== "Y") {
+            this.copy('src/components/app/_app.component.scss', 'src/components/app/app.component.scss');
+        }
+        else{
+            this.copy('src/components/app/_app.component.css', 'src/components/app/app.component.css');
+        }
+        this.copy('src/components/app/_app.component.ts', 'src/components/app/app.component.ts');
+        this.copy('src/components/app/_app.component.spec.ts', 'src/components/app/app.component.spec.ts');
 
-        this.copy('app/shared/_README.md', 'app/shared/README.md');
+        this.copy('src/shared/_README.md', 'src/shared/README.md');
 
         //Directives folders and content creation
-        this.copy('app/shared/directives/_README.md', 'app/shared/directives/README.md');
-        this.copy('app/shared/directives/src/_README.md', 'app/shared/directives/src/README.md');
-        this.copy('app/shared/directives/test/_README.md', 'app/shared/directives/test/README.md');
+        this.copy('src/shared/directives/_README.md', 'src/shared/directives/README.md');
+        this.copy('src/shared/directives/src/_README.md', 'src/shared/directives/src/README.md');
+        this.copy('src/shared/directives/test/_README.md', 'src/shared/directives/test/README.md');
 
         //Services folders and content creation
-        this.copy('app/shared/services/_README.md', 'app/shared/services/README.md');
-        this.copy('app/shared/services/src/_README.md', 'app/shared/services/src/README.md');
-        this.copy('app/shared/services/test/_README.md', 'app/shared/services/test/README.md');
+        this.copy('src/shared/services/_README.md', 'src/shared/services/README.md');
+        this.copy('src/shared/services/src/_README.md', 'src/shared/services/src/README.md');
+        this.copy('src/shared/services/test/_README.md', 'src/shared/services/test/README.md');
 
         //Styles folder and content creation
-        this.copy('app/shared/styles/_README.md', 'app/shared/styles/README.md');
+        this.copy('src/shared/styles/_README.md', 'src/shared/styles/README.md');
         //We initialise the message which appears in the readme of the style folder. We give two different message
         //if sass has been installed or not.
         this.messageInReadMe="";
@@ -139,8 +149,8 @@ module.exports = generators.Base.extend({
             this.messageInReadMe="Initially, we generate two files: <br/> " +
                 "- main.scss: File Sass which defines the common part in the design of the application " +
                 "- variables.scss: Contains all css variables used for the design";
-            this.copy('app/shared/styles/_main.scss', 'app/shared/styles/main.scss');
-            this.copy('app/shared/styles/_variable.scss', 'app/shared/styles/variable.scss');
+            this.copy('src/shared/styles/_main.scss', 'src/shared/styles/main.scss');
+            this.copy('src/shared/styles/_variables.scss', 'src/shared/styles/variables.scss');
         }
 
         //Copy grunt tasks

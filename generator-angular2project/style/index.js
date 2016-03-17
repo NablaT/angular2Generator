@@ -23,7 +23,7 @@ module.exports = generators.Base.extend({
      */
     checkSass: function () {
         this.hasSass=false;
-        var jsonContent=json.readFileSync("./_package.json", 'utf8');
+        var jsonContent=json.readFileSync("./package.json", 'utf8');
         var storeJson= JSON.parse(jsonContent);
         for(var currentKey in storeJson.dependencies) {
             if(currentKey=="gulp-sass"){
@@ -39,7 +39,7 @@ module.exports = generators.Base.extend({
     writing: function () {
         this.argsInKebab = lodash.kebabCase(this.arguments);
 
-        this.basicTemplate= 'app/shared/styles/' + this.argsInKebab;
+        this.basicTemplate= 'src/shared/styles/' + this.argsInKebab;
         if(this.hasSass){
             this.copy('styles/_basic-template.css', this.basicTemplate + '.component.scss');
         }

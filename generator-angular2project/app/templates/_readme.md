@@ -1,3 +1,3 @@
-###Your app
+###<%= projectTitle %>
 
-This is the read me of your app
+This is the read me of <%= projectTitle %>
