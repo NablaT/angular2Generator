@@ -141,17 +141,20 @@ module.exports = generators.Base.extend({
         this.copy('src/shared/services/test/_README.md', 'src/shared/services/test/README.md');
 
         //Styles folder and content creation
-        this.copy('src/shared/styles/_README.md', 'src/shared/styles/README.md');
         //We initialise the message which appears in the readme of the style folder. We give two different message
         //if sass has been installed or not.
         this.messageInReadMe="";
         if (this.sassValue=== "Y") {
-            this.messageInReadMe="Initially, we generate two files: <br/> " +
-                "- main.scss: File Sass which defines the common part in the design of the application " +
+            this.messageInReadMe="Initially, we generate two files: " +
+                "- main.scss: File Sass which defines the common part in the design of the application" +
                 "- variables.scss: Contains all css variables used for the design";
             this.copy('src/shared/styles/_main.scss', 'src/shared/styles/main.scss');
             this.copy('src/shared/styles/_variables.scss', 'src/shared/styles/variables.scss');
         }
+        else{
+
+        }
+        this.copy('src/shared/styles/_README.md', 'src/shared/styles/README.md');
 
         //Copy grunt tasks
         this.copy('gulp/README.md', 'gulp/README.md');
@@ -210,5 +213,9 @@ module.exports = generators.Base.extend({
         this.npmInstall(['gulp-cli'], { 'g': true });
         this.npmInstall(); //npm install
         //this.spawnCommand('gulp', ['serve']);
-    }
+    },
+
+    /*runApp: function(){
+        this.spawnCommand('gulp', ['serve']);
+    }*/
 });
